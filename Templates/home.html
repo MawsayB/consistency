@@ -1,27 +1,14 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-    <head>
-        <title>Home</title>
-        <style>
+{% block content %}
+<!--add # of days of streak -->
 
-            /*need to play with bootstrap here*/
-            /*need to also build the 2 boxes below*/
+<h2>You're on a x day steak, username!</h2>
 
-            *{
-                margin-left: 10px;
-                margin-right: 10px;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-        </style>
-    </head>
+<div class="btn-group">
+        <button type="button" class="btn btn-primary">Lift</button>
+        <button type="button" class="btn btn-primary">Analyze</button>
+        <button type="button" class="btn btn-primary">Measure</button>
+</div> 
 
-<body>
-    <div>
-        <h1>Consistent</h1>
-        <h3>box for username</h2>
-        <h3>box for password</h2>
-    </div>
-
-</body>
-</html>
+{% endblock %}
