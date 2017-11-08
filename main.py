@@ -20,23 +20,17 @@ app.secret_key = 'mawsaysFinalProject'
         #self.password = password
 
 class Activities(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    activity_code = db.Column(db.Integer, primary_key=True)
     exercise = db.Column(db.String(120))
     equipment = db.Column(db.String(120))
     zone = db.Column(db.String(2500))
     setting = db.Column(db.String(2500)) #chair/bench notes
-    pounds = db.Column(db.Integer) #make dials with 100s', 10's, 1's and .1 place
-    num_set = db.Column(db.Integer) #total of 3 sets
-    reps = db.column(db.Integer) # goal of 20 reps per set
 
     def __init__(self, exercise, equipment, zone, setting, pounds, num_set, reps):
         self.exercise = exercise
         self.equipment = equipment
         self.zone = zone
         self.setting = setting
-        self.pounds = pounds
-        self.num_set = num_set
-        self.reps = reps
     
 #class Progress(db.Model):
     #date = db.Column(db.Date())
@@ -70,10 +64,6 @@ def login():
 @app.route('/home', methods=['POST', 'GET'])
 def home():
     return render_template('home.html')
-
-@app.route('/lift', methods=['POST', 'GET'])
-def lift():
-    return render_template('lift.html')
 
 if __name__ == '__main__':
     app.run()

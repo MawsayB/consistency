@@ -1,14 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<h4>You're on a x day steak, username!</h4>
 <!--add # of days of streak -->
 
-<h2>You're on a x day steak, username!</h2>
-
 <div class="btn-group">
-        <a href = "http://localhost:5000/lift"><button type="button" class="btn btn-primary">Lift</button></a>
-        <button type="button" class="btn btn-primary">Analyze</button>
-        <button type="button" class="btn btn-primary">Measure</button>
+        <a href="#lift"><button type="button" class="btn btn-primary">Lift</button></a>
+        <a href="#analyze"><button type="button" class="btn btn-primary">Analyze</button></a>
+        <a href="#measure"><button type="button" class="btn btn-primary">Measure</button></a>
 </div> 
+<br>
+
+<br>
+
+<article>
+
+<a name="lift"></a>
+<h2>Lift</h2>
+
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select a Zone
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="#">Shoulders</a></li>
+        <li><a href="#">Back</a></li>
+        <li><a href="#">Chest</a></li>
+        <li><a href="#">Biceps and Triceps</a></li>
+        <li><a href="#">Butt and Legs</a></li>
+    </ul>
+</div> 
+
+</article>
+
+<br>
+
+<article>
+
+<a name="analyze"></a>
+<h2>Analyze</h2>
+<h4>Charts.  Nice graphs.
+Visuals for folks to see their progress.</h4>
+
+</article>
+
+<br>
+
+<article>
+
+<a name="measure"></a>
+<h2>Measure</h2>
+<h4>There would be stats on body part measurements here.
+Weight?  Maybe.</h4>
+
+</article>
 
 {% endblock %}
