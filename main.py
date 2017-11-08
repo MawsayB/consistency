@@ -1,32 +1,54 @@
 from flask import Flask, request, redirect, render_template, session, flash
-#from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 import cgi
 
 app = Flask(__name__)
 app.config['DEBUG'] = True   
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://consistent:fitness@localhost:8889/consistent'
-#app.config['SQLALCHEMY_ECHO'] = True
-#db = SQLAlchemy(app)
-#app.secret_key = 'mawsaysFinalProject'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://consistent:fitness@localhost:8889/consistent'
+app.config['SQLALCHEMY_ECHO'] = True
+db = SQLAlchemy(app)
+app.secret_key = 'mawsaysFinalProject'
 
 #class User(db.Model):
-    #id
-    #username
-    #password
+    #id = db.Column(db.Integer, primary_key=True)
+    #username = db.Column(db.String(120), unique=True)
+    #password = db.Column(db.String(120))
+    #progress = db.relationship(Progress, backref='data')
 
-#class Exercise(db.Model):
-    #id - num
-    #name of exercise - string
-    #lbs (100's, 10's, 1's place on individual dials)
-    #equipment
-    #setting (chair, bench)
+    #def __init__(self, username, password):
+        #self.username = username
+        #self.password = password
 
+class Activities(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    exercise = db.Column(db.String(120))
+    equipment = db.Column(db.String(120))
+    zone = db.Column(db.String(2500))
+    setting = db.Column(db.String(2500)) #chair/bench notes
+    pounds = db.Column(db.Integer) #make dials with 100s', 10's, 1's and .1 place
+    num_set = db.Column(db.Integer) #total of 3 sets
+    reps = db.column(db.Integer) # goal of 20 reps per set
+
+    def __init__(self, exercise, equipment, zone, setting, pounds, num_set, reps):
+        self.exercise = exercise
+        self.equipment = equipment
+        self.zone = zone
+        self.setting = setting
+        self.pounds = pounds
+        self.num_set = num_set
+        self.reps = reps
+    
 #class Progress(db.Model):
-    #date
-    #user
-    #name of exercise
-    #equipment
-    #lbs
+    #date = db.Column(db.Date())
+    #user = db.Column(db.Integer, db.ForeignKey('user.id'))
+    #name of exercise = db.Column(db.String(2500), db.ForeignKey('activities.exercise')
+    #pounds = db.Column(db.Integer) #make dials with 100s', 10's, 1's and .1 place
+    #set = db.Column(db.Integer) #total of 3 sets
+    #reps = db.column(db.Integer) # goal of 20 reps per set
+
+    #def __init__(self, date, user, ):
+        #self.username = username
+        #self.password = password
 
 @app.route('/', methods=['POST', 'GET'])
 def login():
