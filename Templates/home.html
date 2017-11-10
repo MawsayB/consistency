@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h4>You're on a x day steak, username!</h4>
+<h4>You're on a x day steak!</h4>
 <!--add # of days of streak -->
 
 <div class="btn-group">
@@ -19,17 +19,17 @@
 <a name="lift"></a>
 <h2>Lift</h2>
 
-<div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select a Zone
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-        <li><a href="#">Shoulders</a></li>
-        <li><a href="#">Back</a></li>
-        <li><a href="#">Chest</a></li>
-        <li><a href="#">Biceps and Triceps</a></li>
-        <li><a href="#">Butt and Legs</a></li>
-    </ul>
-</div> 
+<form>
+<select name="zone" onchange='this.form.submit()'>
+        <option select>Pick a Zone</option>
+        <option>Shoulders</option>
+        <option>Back</option>
+        <option>Chest</option>
+        <option>Biceps and Triceps</option>
+        <option>Butt and Legs</option>
+</select>
+<noscript><input type="submit" value="Submit"></noscript>
+</form>
 
 </article>
 
