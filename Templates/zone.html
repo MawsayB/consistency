@@ -2,6 +2,21 @@
 
 {% block content %}
 
-<h2>Complete This Shoulder Workout</h2>
+<article>
+    <h2>Lift</h2>
+        
+    <form method="post">
+        <select name="zone" onchange="this.form.submit()">
+                <option select>***Pick a Zone***</option>
+                <option>Shoulders</option>
+                <option>Back</option>
+                <option>Chest</option>
+                <option>Biceps and Triceps</option>
+                <option>Butt and Legs</option>
+        </select>
+        <noscript><input type="submit" value="Submit"></noscript>
+    </form>
+        
+</article>
 
 {% endblock %}

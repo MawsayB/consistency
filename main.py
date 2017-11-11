@@ -35,6 +35,10 @@ class Activities(db.Model):
         #self.zone = zone
         #self.password = password
 
+@app.route('/analyze', methods=['POST', 'GET'])
+def analyze():
+     return render_template('analyze.html')
+
 @app.route('/', methods=['POST', 'GET'])
 def home():
     if request.method == 'POST':
@@ -45,6 +49,10 @@ def home():
 @app.route('/lift', methods=['POST', 'GET'])
 def lift():
      return render_template('zone.html')
+
+@app.route('/measure', methods=['POST', 'GET'])
+def measure():
+     return render_template('measure.html')
 
 if __name__ == '__main__':
     app.run()
