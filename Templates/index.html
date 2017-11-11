@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h4>You're on a x day steak!</h4>
+<h4>You're on a x day streak!</h4>
 <!--add # of days of streak -->
 
 <div class="btn-group">
@@ -19,8 +19,8 @@
 <a name="lift"></a>
 <h2>Lift</h2>
 
-<form>
-<select name="zone" onchange='this.form.submit()'>
+<form method="post">
+<select name="zone" onchange="this.form.submit()">
         <option select>Pick a Zone</option>
         <option>Shoulders</option>
         <option>Back</option>

@@ -24,25 +24,27 @@ class Activities(db.Model):
         self.setting = setting
     
 #class Progress(db.Model):
-    #date = db.Column(db.Date())
-    #user = db.Column(db.Integer, db.ForeignKey('user.id'))
-    #name of exercise = db.Column(db.String(2500), db.ForeignKey('activities.exercise')
+    #date = db.Column(DATE)
+    #zone = db.Column(db.String(2500)
+    #exercise = db.Column(db.String(2500), db.ForeignKey('activities.exercise')
     #pounds = db.Column(db.Integer) #make dials with 100s', 10's, 1's and .1 place
     #set = db.Column(db.Integer) #total of 3 sets
     #reps = db.column(db.Integer) # goal of 20 reps per set
 
-    #def __init__(self, date, user, ):
-        #self.username = username
+    #def __init__(self, date, zone, exercise, pounds, set, reps):
+        #self.zone = zone
         #self.password = password
 
-@app.route('/home', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def home():
-    return render_template('home.html')
+    if request.method == 'POST':
+        return redirect('/lift')         
+    else:
+        return render_template('index.html')
 
-    zone = request.args.get('zone')         
-    
-    if zone:
-        return render_template('zone.html')
+@app.route('/lift', methods=['POST', 'GET'])
+def lift():
+     return render_template('zone.html')
 
 if __name__ == '__main__':
     app.run()
